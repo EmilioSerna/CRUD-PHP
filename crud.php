@@ -33,7 +33,16 @@ $sql = "SELECT $product_id, $product, $date, $quantity, $price FROM $table_produ
 $result = $conn->query($sql);
 //print_r($result);
 if ($result->num_rows > 0) {
-  echo "<table border='1'><tr><th>ID</th><th>Name</th><th>Fecha</th><th>Numero</th><th>NumeroDouble</th><th>Eliminar</th><th>Modificar</th></tr>";
+  echo "<table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Nombre del producto</th>
+    <th>Fecha de Ingreso</th>
+    <th>Cantidad</th>
+    <th>Precio</th>
+    <th>Eliminar</th>
+    <th>Modificar</th>
+  </tr>";
   // output data of each row
   while($row = $result->fetch_assoc()) {
     echo "\n<tr>
