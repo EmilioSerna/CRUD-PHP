@@ -88,10 +88,9 @@ $name = $_SESSION['nombre'];
 <h3>Inserte la informacion del nuevo registro</h3>
 
 <fieldset style="width:800px">
-  <?php
-  echo "Id: <input type='number' name='identificador' id='' value='$result->num_rows' class='w3-input' required><br>";
-  echo "Nombre: <input type='text' name='nombre' id='' placeholder='Ej. $name' class='w3-input'><br>";
-  echo "Fecha de Ingreso: <input type='date' name='fecha' id='' value=$current_date><br>";?>
+  <?="Id: <input type='number' name='identificador' id='' value='$result->num_rows' class='w3-input' required><br>";?>
+  <?="Nombre: <input type='text' name='nombre' id='' placeholder='Ej. $name' class='w3-input'><br>";?>
+  <?="Fecha de Ingreso: <input type='date' name='fecha' id='' value=$current_date><br>";?>
   Cantidad: <input type="number" name="numero" id="" placeholder="Ej. 10"><br> 
   Precio: <input type="decimal" step="0.01" name="numdouble" id="" placeholder="Ej. 15.50"><br>
   <br>

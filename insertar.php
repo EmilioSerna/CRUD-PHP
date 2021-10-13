@@ -1,6 +1,7 @@
 <?php
 include("./inc/settings.php");
 include("./inc/products.php");
+include("./inc/error.php");
 validar();
 
 $identificador=$_POST ['identificador'];
@@ -21,7 +22,7 @@ if ($conn->connect_error) {
 if ( $conn->query($query)== TRUE){
     header("location:crud.php");
 }else{
-    echo "Algo salio mal <a href='https://localhost/crud/crud.php'> clic aqui para volver al crud</a>" ;
+    echo $error;
 }
 
 ?>

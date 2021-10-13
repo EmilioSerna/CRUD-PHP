@@ -3,6 +3,6 @@
 <?php
     $error = "
     <div class='alert alert-danger' role='alert'>
-        Algo salió mal <a href='localhost/crud/crud.php' class='alert-link'><br>Regresar a la pantalla principal</a>
+        Algo salió mal <a href='http://localhost/crud/crud.php' class='alert-link'><br>Regresar a la pantalla principal</a>
     </div>";
 ?>
