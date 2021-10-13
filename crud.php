@@ -72,15 +72,22 @@ if ($result->num_rows > 0) {
   echo "0 results";
 }
 $conn->close();
+
+$year = getdate()['year'];
+$month = getdate()['mon'];
+$day = getdate()['mday'];
+$current_date = "$year-$month-$day";
+$name = $_SESSION['nombre'];
 ?>
 <br>
 <form action="insertar.php" method="post">
 
 <fieldset style="width:300px">
 <legend>Inserte la informacion del nuevo registro</legend>
-  <?php echo("Id: <input type=\"number\" name=\"identificador\" id=\"\" value=\"$result->num_rows\" class=\"w3-input\" required><br>");?>
-  Nombre: <input type="text" name="nombre" id="" value="Humberto" class="w3-input"><br>
-  Fecha de Ingreso: <input type="date" name="fecha" id="" value="1975-06-23"><br>
+  <?php
+  echo "Id: <input type='number' name='identificador' id='' value='$result->num_rows' class='w3-input' required><br>";
+  echo "Nombre: <input type='text' name='nombre' id='' value='$name' class='w3-input'><br>";
+  echo "Fecha de Ingreso: <input type='date' name='fecha' id='' value=$current_date><br>";?>
   Cantidad: <input type="number" name="numero" id="" value="123"><br> 
   Precio: <input type="number" name="numdouble" id="" value="321"><br>
   <br>
