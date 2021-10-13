@@ -1,10 +1,11 @@
 <?php 
 include("./inc/settings.php");
+include("./inc/products.php");
 validar();
 ?>
+
 <?php 
-    $query = "UPDATE table1 SET column2 = '".$_POST['nombre']."', column3 = '".$_POST['fecha']."', column4 = ".$_POST['numero'].", column5 = ".$_POST['numdouble']." WHERE column1 = ".$_POST['identificador'].";";
-//echo $query;
+    $query = "UPDATE $table_products SET $product = '".$_POST['nombre']."', $date = '".$_POST['fecha']."', $quantity = ".$_POST['numero'].", $price = ".$_POST['numdouble']." WHERE $product_id = ".$_POST['identificador'].";";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
