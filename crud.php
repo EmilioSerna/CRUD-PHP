@@ -86,6 +86,7 @@ $name = $_SESSION['nombre'];
 <br>
 <form action="insertar.php" method="post">
 
+
 <h3>Inserte la informacion del nuevo registro</h3>
 
 <fieldset style="width:800px">

@@ -11,7 +11,7 @@
 <body>
     <h1 style="text-align: center">Bienvenido al sistema de gesti&oacute;n de productos<br></h1>
     
-    <div class="form-group">
+    <div class="form-login">
         <form action="validar.php" method="post">
             <label for="exampleInputEmail1">Usuario</label>
             <input type="text" name="username" class="form-control" id="" aria-describedby="emailHelp" placeholder="Usuario" required>
