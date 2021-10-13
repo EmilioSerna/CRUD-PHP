@@ -20,6 +20,7 @@
   <div class="titulo">
     <h3>
       Bienvenido al himalaya
+      <br>
       <?= $_SESSION["nombre"]?>
       <?= $_SESSION["apellido1"]?>
       <?= $_SESSION["apellido2"]?>
@@ -45,13 +46,13 @@ if ($result->num_rows > 0) {
 <table class='table table-hover'>
   <thead>
     <tr>
-      <th scope='col'>ID</th>
-      <th scope='col'>Nombre del producto</th>
-      <th scope='col'>Fecha de Ingreso</th>
-      <th scope='col'>Cantidad</th>
-      <th scope='col'>Precio</th>
-      <th scope='col'>Eliminar</th>
-      <th scope='col'>Modificar</th>
+      <th scope='col' width=10%>ID</th>
+      <th scope='col' width=30%>Nombre del producto</th>
+      <th scope='col' width=10%>Fecha de Ingreso</th>
+      <th scope='col' width=15%>Cantidad</th>
+      <th scope='col' width=15%>Precio</th>
+      <th scope='col' width=10%>Eliminar</th>
+      <th scope='col' width=10%>Modificar</th>
     </tr>
   </thead>
 

@@ -20,10 +20,14 @@ tr:nth-child(odd){
   background-color:aliceblue;
 }
 
-td:hover{
-  background-color:black;
+tr:hover {
+  background-color:gainsboro;
 }
 
-tr:hover {
-  background-color:beige;
+.form-group {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
