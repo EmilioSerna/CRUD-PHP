@@ -1,6 +1,6 @@
 <?php
-include("./inc/settings.php");
-validar();
+  include("./inc/settings.php");
+  validar();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +35,13 @@ if ($result->num_rows > 0) {
   echo "<table border='1'><tr><th>ID</th><th>Name</th><th>Fecha</th><th>Numero</th><th>NumeroDouble</th><th>Eliminar</th><th>Modificar</th></tr>";
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "\n<tr>\n\t<td>".$row["column1"]."</td>\n\t<td>".$row["column2"]."</td>\n\t<td>".$row["column3"]."</td>\n\t<td>".$row["column4"]."</td>\n\t<td>".$row["column5"]."</td>";
+    echo "\n<tr>
+    \n\t<td>".$row["column1"]."</td>\n\t
+    <td>".$row["column2"]."</td>\n\t
+    <td>".$row["column3"]."</td>\n\t
+    <td>".$row["column4"]."</td>\n\t
+    <td>".$row["column5"]."</td>";
+
     echo "<td><a href='eliminar.php?colum1=".$row["column1"]."' onclick='return confirmar()'><img src='./img/eliminar.png'></a></td><td>
           <a href='update.php?colum1=".$row["column1"]."' onclick='return confirmarModificar()'><img src='./img/update.png'></td></tr>\n";
   }
@@ -53,8 +59,8 @@ $conn->close();
   Id: <input type="number" name="identificador" id="" value="1975" class="w3-input" required><br>
   Nombre: <input type="text" name="nombre" id="" value="Humberto" class="w3-input"><br>
   Fecha: <input type="date" name="fecha" id="" value="1975-06-23"><br>
-  Numero: <input type="number" name="numero" id="" value=""><br> 
-  Num.Double: <input type="number" name="numdouble" id="" value=""><br>
+  Numero: <input type="number" name="numero" id="" value="123"><br> 
+  Num.Double: <input type="number" name="numdouble" id="" value="321"><br>
   <br>
   <input type="submit" value="Aceptar"><br> 
 </fieldset>
