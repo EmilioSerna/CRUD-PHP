@@ -12,19 +12,21 @@
     <title>Document</title>
     <script src="./js/funciones.js"></script> 
 
-<!--<link rel="stylesheet" href="./css/estilos.css">-->
+<link rel="stylesheet" href="./css/estilos.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
 <body>
-  <h3>
-    Bienvenido al himalaya
-    <?= $_SESSION["nombre"]?>
-    <?= $_SESSION["apellido1"]?>
-    <?= $_SESSION["apellido2"]?>
-    <br>
-    <a href="logout.php" >Log out</a>
-  </h3>
+  <div class="titulo">
+    <h3>
+      Bienvenido al himalaya
+      <?= $_SESSION["nombre"]?>
+      <?= $_SESSION["apellido1"]?>
+      <?= $_SESSION["apellido2"]?>
+      <br>
+      <a href="logout.php" >Logout</a>
+    </h3>
+  </div>
 <?php
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -39,6 +41,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   ?>
 
+<div class="tabla">
 <table class='table table-hover'>
   <thead>
     <tr>
@@ -82,18 +85,20 @@ $name = $_SESSION['nombre'];
 <br>
 <form action="insertar.php" method="post">
 
-<fieldset style="width:300px">
-<legend>Inserte la informacion del nuevo registro</legend>
+<h3>Inserte la informacion del nuevo registro</h3>
+
+<fieldset style="width:800px">
   <?php
   echo "Id: <input type='number' name='identificador' id='' value='$result->num_rows' class='w3-input' required><br>";
-  echo "Nombre: <input type='text' name='nombre' id='' value='$name' class='w3-input'><br>";
+  echo "Nombre: <input type='text' name='nombre' id='' placeholder='Ej. $name' class='w3-input'><br>";
   echo "Fecha de Ingreso: <input type='date' name='fecha' id='' value=$current_date><br>";?>
-  Cantidad: <input type="number" name="numero" id="" value="123"><br> 
-  Precio: <input type="number" name="numdouble" id="" value="321"><br>
+  Cantidad: <input type="number" name="numero" id="" placeholder="Ej. 10"><br> 
+  Precio: <input type="decimal" step="0.01" name="numdouble" id="" placeholder="Ej. 15.50"><br>
   <br>
-  <input type="submit" value="Aceptar"><br> 
+  <button type="submit" class="btn btn-primary">Aceptar</button>
 </fieldset>
 </form>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
