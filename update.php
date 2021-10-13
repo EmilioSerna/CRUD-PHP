@@ -1,11 +1,12 @@
 <?php
   include("./inc/settings.php");
   include("./inc/products.php");
+  include("./inc/error.php");
   validar();
 ?>
 <?php
 
-$query="SELECT column1, column2, column3, column4, column5 FROM table1 WHERE column1 = ".$_GET['colum1'].";";
+$query="SELECT $product_id, $product, $date, $quantity, $price FROM $table_products WHERE $product_id = ".$_GET['id'].";";
 
 
 // Create connection
@@ -36,9 +37,7 @@ if ( $conn->query($query)== TRUE){
       <?php
     }
 }else{
-    echo "Algo salio mal <a href='https://localhost/crud/crud.php'> clic aqui para volver al crud</a>" ;
-    
+    echo $error;
 }
-
 
 ?>

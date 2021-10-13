@@ -12,15 +12,19 @@
     <title>Document</title>
     <script src="./js/funciones.js"></script> 
 
-<link rel="stylesheet" href="./css/estilos.css">
+<!--<link rel="stylesheet" href="./css/estilos.css">-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
 <body>
-    Bienvenido a mi crud
+  <h3>
+    Bienvenido al himalaya
     <?= $_SESSION["nombre"]?>
     <?= $_SESSION["apellido1"]?>
     <?= $_SESSION["apellido2"]?>
+    <br>
     <a href="logout.php" >Log out</a>
+  </h3>
 <?php
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -33,28 +37,36 @@ $sql = "SELECT $product_id, $product, $date, $quantity, $price FROM $table_produ
 $result = $conn->query($sql);
 //print_r($result);
 if ($result->num_rows > 0) {
-  echo "<table border='1'>
-  <tr>
-    <th>ID</th>
-    <th>Nombre del producto</th>
-    <th>Fecha de Ingreso</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th>Eliminar</th>
-    <th>Modificar</th>
-  </tr>";
+  ?>
+
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th scope='col'>ID</th>
+      <th scope='col'>Nombre del producto</th>
+      <th scope='col'>Fecha de Ingreso</th>
+      <th scope='col'>Cantidad</th>
+      <th scope='col'>Precio</th>
+      <th scope='col'>Eliminar</th>
+      <th scope='col'>Modificar</th>
+    </tr>
+  </thead>
+
+  <?php
   // output data of each row
+  echo "<tbody>";
   while($row = $result->fetch_assoc()) {
     echo "\n<tr>
-    \n\t<td>".$row[$product_id]."</td>\n\t
+    \n\t<th scope='row'>".$row[$product_id]."</th>\n\t
     <td>".$row[$product]."</td>\n\t
     <td>".$row[$date]."</td>\n\t
     <td>".$row[$quantity]."</td>\n\t
-    <td>".$row[$date]."</td>";
+    <td>".$row[$price]."</td>";
 
     echo "<td><a href='eliminar.php?id=".$row[$product_id]."' onclick='return confirmar()'><img src='./img/eliminar.png'></a></td><td>
           <a href='update.php?id=".$row[$product_id]."' onclick='return confirmarModificar()'><img src='./img/update.png'></td></tr>\n";
   }
+  echo "</tbody>";
   echo "</table>";
 } else {
   echo "0 results";
@@ -76,5 +88,6 @@ $conn->close();
 </fieldset>
 </form>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
