@@ -66,7 +66,7 @@ $conn->close();
 
 <fieldset style="width:300px">
 <legend>Inserte la informacion del nuevo registro</legend>
-  Id: <input type="number" name="identificador" id="" value="1975" class="w3-input" required><br>
+  <?php echo("Id: <input type=\"number\" name=\"identificador\" id=\"\" value=\"$result->num_rows\" class=\"w3-input\" required><br>");?>
   Nombre: <input type="text" name="nombre" id="" value="Humberto" class="w3-input"><br>
   Fecha de Ingreso: <input type="date" name="fecha" id="" value="1975-06-23"><br>
   Cantidad: <input type="number" name="numero" id="" value="123"><br> 
