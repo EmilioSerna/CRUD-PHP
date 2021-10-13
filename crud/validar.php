@@ -1,8 +1,8 @@
 <?php
   include("./inc/settings.php");
   include("./inc/users.php");
-  
-  $query="SELECT * FROM $table WHERE $user = '$_POST[username]' AND $user_password = md5('$_POST[pwd]');";
+
+  $query="SELECT * FROM $table_users WHERE $user = '$_POST[username]' AND $user_password = md5('$_POST[pwd]');";
 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);

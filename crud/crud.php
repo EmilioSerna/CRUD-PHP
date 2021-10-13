@@ -1,5 +1,6 @@
 <?php
   include("./inc/settings.php");
+  include("./inc/products.php");
   validar();
 ?>
 <!DOCTYPE html>
@@ -28,7 +29,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT column1, column2, column3, column4, column5 FROM table1";
+$sql = "SELECT $product_id, $product, $date, $quantity, $price FROM $table_products";
 $result = $conn->query($sql);
 //print_r($result);
 if ($result->num_rows > 0) {
@@ -36,14 +37,14 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
     echo "\n<tr>
-    \n\t<td>".$row["column1"]."</td>\n\t
-    <td>".$row["column2"]."</td>\n\t
-    <td>".$row["column3"]."</td>\n\t
-    <td>".$row["column4"]."</td>\n\t
-    <td>".$row["column5"]."</td>";
+    \n\t<td>".$row[$product_id]."</td>\n\t
+    <td>".$row[$product]."</td>\n\t
+    <td>".$row[$date]."</td>\n\t
+    <td>".$row[$quantity]."</td>\n\t
+    <td>".$row[$date]."</td>";
 
-    echo "<td><a href='eliminar.php?colum1=".$row["column1"]."' onclick='return confirmar()'><img src='./img/eliminar.png'></a></td><td>
-          <a href='update.php?colum1=".$row["column1"]."' onclick='return confirmarModificar()'><img src='./img/update.png'></td></tr>\n";
+    echo "<td><a href='eliminar.php?id=".$row[$product_id]."' onclick='return confirmar()'><img src='./img/eliminar.png'></a></td><td>
+          <a href='update.php?id=".$row[$product_id]."' onclick='return confirmarModificar()'><img src='./img/update.png'></td></tr>\n";
   }
   echo "</table>";
 } else {
@@ -58,9 +59,9 @@ $conn->close();
 <legend>Inserte la informacion del nuevo registro</legend>
   Id: <input type="number" name="identificador" id="" value="1975" class="w3-input" required><br>
   Nombre: <input type="text" name="nombre" id="" value="Humberto" class="w3-input"><br>
-  Fecha: <input type="date" name="fecha" id="" value="1975-06-23"><br>
-  Numero: <input type="number" name="numero" id="" value="123"><br> 
-  Num.Double: <input type="number" name="numdouble" id="" value="321"><br>
+  Fecha de Ingreso: <input type="date" name="fecha" id="" value="1975-06-23"><br>
+  Cantidad: <input type="number" name="numero" id="" value="123"><br> 
+  Precio: <input type="number" name="numdouble" id="" value="321"><br>
   <br>
   <input type="submit" value="Aceptar"><br> 
 </fieldset>

@@ -1,16 +1,13 @@
 <?php
 include("./inc/settings.php");
+include("./inc/products.php");
 validar();
 ?>
 <?php
-//print_r($_GET);
 
-$id=$_GET['colum1'];
+$id=$_GET['id'];
 
-$query="DELETE FROM table1 WHERE column1=$id;";
-
-// echo $query;
-
+$query="DELETE FROM $table_products WHERE $product_id = $id;";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

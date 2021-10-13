@@ -1,5 +1,6 @@
 <?php
 include("./inc/settings.php");
+include("./inc/products.php");
 validar();
 
 $identificador=$_POST ['identificador'];
@@ -8,7 +9,7 @@ $fecha=$_POST ['fecha'];
 $numero=$_POST ['numero'];
 $numdouble=$_POST ['numdouble'];
 
-$query="INSERT INTO table1 (column1, column2, column3, column4, column5) VALUES ($identificador, '$nombre', '$fecha', $numero, $numdouble);";
+$query="INSERT INTO $table_products ($product_id, $product, $date, $quantity, $price) VALUES ($identificador, '$nombre', '$fecha', $numero, $numdouble);";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
