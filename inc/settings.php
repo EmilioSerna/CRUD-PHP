@@ -1,4 +1,5 @@
-<?php 
+<?php
+include("./inc/error.php");
 $servername = "localhost";
 $username = "root";
 $password = "";
